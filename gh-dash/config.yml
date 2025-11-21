@@ -84,7 +84,7 @@ theme:
       secondary: "#666CA6"
       inverted: "#242347"
       faint: "#3E4057"
-      warning: "#F23D5C"
+      warning: "#f5a524"
       success: "#3DF294"
       error: "#D20F39"
     background:
