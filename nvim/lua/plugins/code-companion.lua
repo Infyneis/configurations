@@ -135,13 +135,13 @@ return {
       "jellydn/spinner.nvim", -- Show loading spinner when request is started
     },
     opts = {
-      strategies = {
+      interactions = {
         chat = {
           adapter = "copilot",
           roles = { llm = "  Copilot Chat", user = "Infyneis" },
           slash_commands = {
             ["buffer"] = {
-              callback = "strategies.chat.slash_commands.buffer",
+              callback = "interactions.chat.slash_commands.buffer",
               description = "Insert open buffers",
               opts = {
                 contains_code = true,
@@ -149,7 +149,7 @@ return {
               },
             },
             ["file"] = {
-              callback = "strategies.chat.slash_commands.file",
+              callback = "interactions.chat.slash_commands.file",
               description = "Insert a file",
               opts = {
                 contains_code = true,
@@ -224,12 +224,12 @@ return {
           },
         },
         ["Explain"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Explain how code in a buffer works",
           opts = {
             default_prompt = true,
             modes = { "v" },
-            short_name = "explain",
+            alias = "explain",
             auto_submit = true,
             user_prompt = false,
             stop_context_insertion = true,
@@ -260,10 +260,10 @@ return {
           },
         },
         ["Explain Code"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Explain how code works",
           opts = {
-            short_name = "explain-code",
+            alias = "explain-code",
             auto_submit = false,
             is_slash_cmd = true,
           },
@@ -283,10 +283,10 @@ return {
         },
         -- Add custom prompts
         ["Generate a Commit Message for Staged"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Generate a commit message for staged change",
           opts = {
-            short_name = "staged-commit",
+            alias = "staged-commit",
             auto_submit = true,
             is_slash_cmd = true,
           },
@@ -306,11 +306,11 @@ return {
           },
         },
         ["Inline Document"] = {
-          strategy = "inline",
+          interaction = "inline",
           description = "Add documentation for code.",
           opts = {
             modes = { "v" },
-            short_name = "inline-doc",
+            alias = "inline-doc",
             auto_submit = true,
             user_prompt = false,
             stop_context_insertion = true,
@@ -334,11 +334,11 @@ return {
           },
         },
         ["Document"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Write documentation for code.",
           opts = {
             modes = { "v" },
-            short_name = "doc",
+            alias = "doc",
             auto_submit = true,
             user_prompt = false,
             stop_context_insertion = true,
@@ -362,11 +362,11 @@ return {
           },
         },
         ["Review"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Review the provided code snippet.",
           opts = {
             modes = { "v" },
-            short_name = "review",
+            alias = "review",
             auto_submit = true,
             user_prompt = false,
             stop_context_insertion = true,
@@ -397,10 +397,10 @@ return {
           },
         },
         ["Review Code"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Review code and provide suggestions for improvement.",
           opts = {
-            short_name = "review-code",
+            alias = "review-code",
             auto_submit = false,
             is_slash_cmd = true,
           },
@@ -419,11 +419,11 @@ return {
           },
         },
         ["Refactor"] = {
-          strategy = "inline",
+          interaction = "inline",
           description = "Refactor the provided code snippet.",
           opts = {
             modes = { "v" },
-            short_name = "refactor",
+            alias = "refactor",
             auto_submit = true,
             user_prompt = false,
             stop_context_insertion = true,
@@ -454,10 +454,10 @@ return {
           },
         },
         ["Refactor Code"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Refactor the provided code snippet.",
           opts = {
-            short_name = "refactor-code",
+            alias = "refactor-code",
             auto_submit = false,
             is_slash_cmd = true,
           },
@@ -476,11 +476,11 @@ return {
           },
         },
         ["Naming"] = {
-          strategy = "inline",
+          interaction = "inline",
           description = "Give betting naming for the provided code snippet.",
           opts = {
             modes = { "v" },
-            short_name = "naming",
+            alias = "naming",
             auto_submit = true,
             user_prompt = false,
             stop_context_insertion = true,
@@ -504,10 +504,10 @@ return {
           },
         },
         ["Better Naming"] = {
-          strategy = "chat",
+          interaction = "chat",
           description = "Give betting naming for the provided code snippet.",
           opts = {
-            short_name = "better-naming",
+            alias = "better-naming",
             auto_submit = false,
             is_slash_cmd = true,
           },
